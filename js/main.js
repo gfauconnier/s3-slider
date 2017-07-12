@@ -21,16 +21,14 @@ function displayCar(clicked = 0, direction = 0) {
 
   if (direction == 0) { // next button or auto carousel
     // takes the first element of imgCar array and sends it to last position of the array
-    temp = imgCar.shift();
-    imgCar.push(temp);
+    imgCar.push(imgCar.shift());
     // displays the image and the text corresponding
     document.getElementById("imgC").src = imgCar[0][0];
     document.getElementById("texC").innerHTML = imgCar[0][1];
   }
   else { // previous button is clicked
     // takes the last element of imgCar array and puts it in first position
-    temp = imgCar.splice(0,0,imgCar[imgCar.length-1]);
-    imgCar.pop();
+    imgCar.unshift(imgCar.pop());
     // displays the image and associated text
     document.getElementById("imgC").src = imgCar[0][0];
     document.getElementById("texC").innerHTML = imgCar[0][1];
