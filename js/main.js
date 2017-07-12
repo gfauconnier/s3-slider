@@ -1,6 +1,6 @@
 var imgCar = ["img/projet2.png", "img/projet3.png", "img/projet4.png", "img/projet1.png"];
 var descCar = ["yay", "test", "encoreblabla", "blabla"];
-var interv = setInterval(displayCar, 2000);
+var interv = setInterval(displayCar, 1500);
 
 var btnC = document.getElementsByClassName("btnCarousel");
 btnC[0].addEventListener('click', function(){displayCar(1,1)});
@@ -26,6 +26,6 @@ function displayCar(cl = 0, direction = 0) {
   }
   if (cl == 1){
     clearInterval(interv);
-    setTimeout(function(){interv = setInterval(displayCar, 2000);},1)
+    setTimeout(function(){interv = setInterval(displayCar, 1500);},1)
   }
 }
