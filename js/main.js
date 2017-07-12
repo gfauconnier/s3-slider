@@ -1,30 +1,39 @@
-var imgCar = ["img/projet2.png", "img/projet3.png", "img/projet4.png", "img/projet1.png"];
-var descCar = ["yay", "test", "encoreblabla", "blabla"];
+var imgCar = [["img/projet2.png","yay"], ["img/projet3.png", "test"], ["img/projet4.png", "encoreblabla"], ["img/projet1.png", "blabla"]];
+
 var interv = setInterval(displayCar, 1500);
 
 var btnC = document.getElementsByClassName("btnCarousel");
 btnC[0].addEventListener('click', function(){displayCar(1,1)});
 btnC[1].addEventListener('click', function(){displayCar(1)});
 
-function displayCar(cl = 0, direction = 0) {
+
+/**
+ * displayCar - function that makes the carousel run automatically or with the use of buttons
+ *
+ * @param  {type} clicked = 0   1 is sent when the user clicks one of the buttons, 0 if auto
+ * @param  {type} direction = 0 1 is sent if previous button is clicked, otherwise 0
+ * @return {type}               no return only display
+ */
+function displayCar(clicked = 0, direction = 0) {
   var n;
-  if (direction == 0) {
+  if (direction == 0) { // next button or auto carousel
+    // takes the first element of imgCar array and sends it to last position of the array
     n = imgCar.shift();
     imgCar.push(n);
-    document.getElementById("imgC").src = imgCar[0];
-    n = descCar.shift();
-    descCar.push(n);
-    document.getElementById("texC").innerHTML = descCar[0];
+    // displays the image and the text corresponding
+    document.getElementById("imgC").src = imgCar[0][0];
+    document.getElementById("texC").innerHTML = imgCar[0][1];
   }
-  else {
+  else { // previous button is clicked
+    // takes the last element of imgCar array and puts it in first position
     n = imgCar.splice(0,0,imgCar[imgCar.length-1]);
     imgCar.pop();
-    document.getElementById("imgC").src = imgCar[0];
-    n = descCar.splice(0,0,descCar[descCar.length-1]);
-    descCar.pop();
-    document.getElementById("texC").innerHTML = descCar[0];
+    // displays the image and associated text
+    document.getElementById("imgC").src = imgCar[0][0];
+    document.getElementById("texC").innerHTML = imgCar[0][1];
   }
-  if (cl == 1){
+  if (clicked == 1){ // when previous or next button are clicked
+    // stop the setInterval() and relaunches it after 1ms (to avoid multiple iterations of it)
     clearInterval(interv);
     setTimeout(function(){interv = setInterval(displayCar, 1500);},1)
   }
