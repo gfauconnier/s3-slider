@@ -1,10 +1,17 @@
+body {
+  background-color: rgb(37, 38, 38);
+}
+
 figure {
   position: relative;
-  height: 80vh;
+  height: 85vh;
+  width: 75vw;
+  padding: 2px;
 }
 
 img {
-  max-height: 80vh;
+  width: 75vw;
+  height: 85vh;
 }
 
 figcaption {
@@ -12,4 +19,15 @@ figcaption {
   width: 100%;
   bottom: 5vh;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.btns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 10vw;
+  margin: 2vh 2vw;
 }

@@ -1,5 +1,5 @@
 // an array containing img sources and associated text
-var imgCar = [["img/projet2.png","yay"], ["img/projet3.png", "test"], ["img/projet4.png", "encoreblabla"], ["img/projet1.png", "blabla"]];
+var imgCar = [["img/image2.jpg","yay"], ["img/image3.jpg", "test"], ["img/image4.jpg", "encoreblabla"], ["img/image1.jpg", "blabla"]];
 
 // sets an intervarl to launch  and call displayCar function
 var interv = setInterval(displayCar, 1500);
